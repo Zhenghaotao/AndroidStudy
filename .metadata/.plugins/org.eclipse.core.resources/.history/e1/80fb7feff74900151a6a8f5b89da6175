@@ -1,0 +1,38 @@
+package com.example.notificationdemo;
+
+import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity implements OnClickListener{
+	private int notification_id=19172439;
+	private NotificationManager nm;
+	private Button btn_show;
+	private Button btn_clear;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        initView();
+    }
+    
+    
+    public void showNotification(int icon,String tickertText,String title,String content){
+    	Notification notification = 
+    }
+
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+    
+}

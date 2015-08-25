@@ -1,0 +1,19 @@
+package com.example.actservicemsgcon;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ProgressBar;
+
+public class MainActivity extends Activity {
+	private MsgService msgService;  
+    private int progress = 0;
+    private ProgressBar mProgressBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    
+}

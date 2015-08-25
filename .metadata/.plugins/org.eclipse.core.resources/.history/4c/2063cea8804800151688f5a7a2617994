@@ -1,0 +1,40 @@
+package com.example.actservicemsgcon;
+
+import com.example.actservicemsgcon.MsgService.MsgBinder;
+
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.view.Menu;
+import android.widget.ProgressBar;
+
+public class MainActivity extends Activity {
+	private MsgService msgService;  
+    private int progress = 0;
+    private ProgressBar mProgressBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+    }
+    
+    
+    private ServiceConnection mConnection = new ServiceConnection() {
+		
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			
+		}
+		
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			MsgBinder binder = (MsgBinder) service;
+			msgService = binder.getService();
+		}
+	};
+    
+}
