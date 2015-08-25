@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
     protected void onStart() {
     	super.onStart();
     	  Intent intent = new Intent(this,MsgService.class);
+    	  startService(intent);
           bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
     @Override

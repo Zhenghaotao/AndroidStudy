@@ -10,9 +10,6 @@ public class MsgService extends Service {
 	 * 进度条的最大值
 	 */
 	public static final int MAX_PROGRESS = 100;
-	/**
-	 * 进度条的进度值
-	 */
 	private int process = 0;
 	/**
 	 * 增加 get()方法,供Activity调用
