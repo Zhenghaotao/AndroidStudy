@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Notification管理器
 		Notification notification = new Notification(icon, tickertext,
 				System.currentTimeMillis());
+		notification.flags = Notification.FLAG_AUTO_CANCEL;
 		// 后面的参数分别是显示在顶部通知栏的小图标，小图标旁的文字（短暂显示，自动消失）系统当前时间（不明白这个有什么用）
 		notification.defaults = Notification.DEFAULT_ALL;
 		// 这是设置通知是否同时播放声音或振动，声音为Notification.DEFAULT_SOUND
@@ -48,9 +49,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Light为Notification.DEFAULT_LIGHTS，在我的Milestone上好像没什么反应
 		// 全部为Notification.DEFAULT_ALL
 		// 如果是振动或者全部，必须在AndroidManifest.xml加入振动权限
-		PendingIntent pt = PendingIntent.getActivity(this, 0, null, 0);
+		Intent intent = new Intent(this,SecondActivity.class);
+		PendingIntent pt = PendingIntent.getActivity(this, 0,intent, 0);
 		// 点击通知后的动作，这里是转回main 这个Acticity
-		notification.setLatestEventInfo(this, title, content, pt);
+		notification.setLatestEventInfo(this, title, content, null);
 		nm.notify(notification_id, notification);
 	}
 
