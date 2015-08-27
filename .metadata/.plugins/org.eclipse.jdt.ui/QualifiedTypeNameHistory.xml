@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.example.notificationdemo.SecondActivity"/>
 <fullyQualifiedTypeName name="android.app.Notification"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
 </qualifiedTypeNameHistroy>
