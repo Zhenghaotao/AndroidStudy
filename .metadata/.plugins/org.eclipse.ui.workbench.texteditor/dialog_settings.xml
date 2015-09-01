@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="msgService" key="selection"/>
+		<item value="RemoveListener" key="selection"/>
 		<list key="findhistory">
-			<item value="MsgService"/>
-			<item value="msgService"/>
+			<item value="RemoveListener"/>
+			<item value="scroller"/>
+			<item value="Scroller"/>
+			<item value="itemView"/>
 		</list>
 	</section>
 </section>
