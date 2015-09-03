@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="RemoveListener" key="selection"/>
+		<item value="setText" key="selection"/>
 		<list key="findhistory">
+			<item value="setText"/>
+			<item value="SetText"/>
+			<item value="screenWidth"/>
 			<item value="RemoveListener"/>
 			<item value="scroller"/>
 			<item value="Scroller"/>
