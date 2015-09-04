@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tao="http://schemas.android.com/apk/res/com.example.customimageview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    <com.example.customimageview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        tao:image="@drawable/ic_launcher"
+        tao:titleText="No Problem!"
+        tao:titleTextColor="#ff0000"
+        tao:titleTextSize="30sp"
+        >
+    </com.example.customimageview.CustomImageView>
+    <com.example.customimageview.CustomImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        tao:image="@drawable/ic_launcher"
+        tao:imageScaleType="center"
+        tao:titleText="No Problem!"
+        tao:titleTextColor="#00ff00"
+        tao:titleTextSize="20sp"
+        >
+    </com.example.customimageview.CustomImageView>
+    <com.example.customimageview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        tao:image="@drawable/girl"
+        tao:titleText="beautiful girl~~"
+        tao:titleTextColor="#ff0000"
+        tao:titleTextSize="12sp"
+        >
+    </com.example.customimageview.CustomImageView>
+    
+
+</LinearLayout>

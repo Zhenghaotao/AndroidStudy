@@ -1,10 +1,11 @@
-iActServiceMsgCon/bin
+ActServiceMsgCon/bin
 NotificationDemo
 ImageScaleDrag/bin
 ShowProgressTextView/bin
 UniversalAdapter/bin
 Weixin_view/bin
 ChangeColorTraceView/bin
-QQListViewScrollToDel/bin
-CustomViewStudy/bin
+QQListViewScrollToDel
+CustomViewStudy
+CustomImageView/bin
 .metadata

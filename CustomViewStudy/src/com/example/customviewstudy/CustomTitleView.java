@@ -69,8 +69,6 @@ public class CustomTitleView extends View {
 				postInvalidate();
 			}
 		});
-		
-		
 	}
 	protected String randomText() {
 		Random random = new Random();
