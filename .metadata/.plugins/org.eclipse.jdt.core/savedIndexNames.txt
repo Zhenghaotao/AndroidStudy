@@ -5,7 +5,6 @@ INDEX VERSION 1.126+/home/taotao/project/adt/AndroidStudy/.metadata/.plugins/org
 3267047404.index
 486556542.index
 2841382555.index
-3887746758.index
 3190582571.index
 4111226561.index
 3955392911.index

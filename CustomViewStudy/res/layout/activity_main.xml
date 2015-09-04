@@ -6,8 +6,8 @@
     tools:context=".MainActivity" >
 	
 	<com.example.customviewstudy.CustomTitleView
-	    android:layout_width="200dp"
-	    android:layout_height="100dp"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
 	    tao:titleText="hahahaha"
 	    tao:titleTextColor="#00ff00"
 	    tao:titleTextSize="30sp"

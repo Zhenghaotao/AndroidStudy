@@ -60,7 +60,34 @@ public class CustomTitleView extends View {
 	}
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+		int width;
+		int height;
+		if(widthMode == MeasureSpec.EXACTLY){
+			width = widthSize;
+		} else {
+			mPaint.setTextSize(mTitleTextSize);
+			mPaint.getTextBounds(mTitleText, 0, mTitleText.length(), mBound);
+			float  textWidth = mBound.width();
+			int desired = (int) (getPaddingLeft() + textWidth + getPaddingRight());
+			width = desired;
+			
+		}
+		if(heightMode == MeasureSpec.EXACTLY){
+			height = heightSize;
+		} else {
+			mPaint.setTextSize(mTitleTextSize);
+			 mPaint.getTextBounds(mTitleText, 0, mTitleText.length(), mBound);
+			 float textHeight = mBound.height();
+			 int desired = (int) (getPaddingTop() + textHeight + getPaddingBottom());
+			 height = desired;
+		}
+		
+		setMeasuredDimension(width, height);  
+		
 	}
 	
 	@Override
