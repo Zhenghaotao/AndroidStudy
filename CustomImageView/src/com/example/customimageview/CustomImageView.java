@@ -155,14 +155,5 @@ public class CustomImageView extends View {
 			canvas.drawBitmap(mImage, null, rect,mPaint);
 			
 		}
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-
 }
