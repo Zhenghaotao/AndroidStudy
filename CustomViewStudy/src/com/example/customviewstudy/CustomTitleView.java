@@ -1,5 +1,9 @@
 package com.example.customviewstudy;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -57,7 +61,31 @@ public class CustomTitleView extends View {
 		mBound = new Rect();
 		mPaint.getTextBounds(mTitleText, 0, mTitleText.length(), mBound);
 		
+		this.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mTitleText = randomText();
+				postInvalidate();
+			}
+		});
+		
+		
 	}
+	protected String randomText() {
+		Random random = new Random();
+		Set<Integer> set = new HashSet<Integer>();
+		while(set.size() < 4){
+			int randomInt = random.nextInt();
+			set.add(randomInt);
+		}
+		StringBuffer sb = new StringBuffer();
+		for(Integer i : set){
+			sb.append("" + i);
+		}
+		return sb.toString();
+	}
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
