@@ -56,8 +56,8 @@
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.MainActivity"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.HorizontalScrollViewAdapter"/>
-<fullyQualifiedTypeName name="com.example.customhorizontalscrollview.R.drawable"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.CustomHorizontalScrollView.CurrentImageChangeListener"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.CustomHorizontalScrollView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="com.example.customhorizontalscrollview.R.drawable"/>
 </qualifiedTypeNameHistroy>
