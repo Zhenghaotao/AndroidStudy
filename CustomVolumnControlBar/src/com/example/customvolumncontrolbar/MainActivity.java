@@ -1,4 +1,4 @@
-package com.example.weixinselectpic;
+package com.example.customvolumncontrolbar;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -13,10 +13,4 @@ public class MainActivity extends Activity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    
 }

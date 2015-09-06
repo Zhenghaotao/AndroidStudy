@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.qqlistviewscrolltodel.R.style"/>
-<fullyQualifiedTypeName name="android.view.Gravity"/>
 <fullyQualifiedTypeName name="com.example.qqlistviewscrolltodel.QQListView"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -26,14 +24,8 @@
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="com.example.customimageview.R.id"/>
 <fullyQualifiedTypeName name="com.example.customimageview.R.styleable"/>
-<fullyQualifiedTypeName name="android.content.res.TypedArray"/>
-<fullyQualifiedTypeName name="android.util.TypedValue"/>
 <fullyQualifiedTypeName name="com.example.customimageview.CustomImageView"/>
-<fullyQualifiedTypeName name="android.graphics.Paint"/>
-<fullyQualifiedTypeName name="android.graphics.Rect"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="android.graphics.Paint.Style"/>
-<fullyQualifiedTypeName name="android.text.TextPaint"/>
 <fullyQualifiedTypeName name="android.text.TextUtils"/>
 <fullyQualifiedTypeName name="android.text.TextUtils.TruncateAt"/>
 <fullyQualifiedTypeName name="android.view.Window"/>
@@ -57,7 +49,15 @@
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.MainActivity"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.HorizontalScrollViewAdapter"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.CustomHorizontalScrollView.CurrentImageChangeListener"/>
-<fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.adapter.CustomHorizontalScrollView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="com.example.customhorizontalscrollview.R.drawable"/>
+<fullyQualifiedTypeName name="android.content.res.TypedArray"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="android.util.TypedValue"/>
+<fullyQualifiedTypeName name="com.example.customcirclewaiting.R.styleable"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="android.graphics.Paint.Style"/>
+<fullyQualifiedTypeName name="android.graphics.Rect"/>
+<fullyQualifiedTypeName name="android.text.TextPaint"/>
+<fullyQualifiedTypeName name="android.graphics.Paint"/>
 </qualifiedTypeNameHistroy>
