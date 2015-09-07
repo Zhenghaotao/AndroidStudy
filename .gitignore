@@ -10,5 +10,6 @@ CustomViewStudy
 CustomImageView
 CustomHorizontalScrollView/bin
 CustomCircleWaiting/bin
-CustomVolumnControlBar/bin
+CustomVolumnControlBar
+VerticalLinearLayout/bin
 .metadata

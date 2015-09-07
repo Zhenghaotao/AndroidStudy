@@ -21,8 +21,6 @@ public class CustomHorizontalScrollView extends HorizontalScrollView implements
 	/**
 	 * 图片滚动时的回调接口
 	 * 
-	 * @author zhy
-	 * 
 	 */
 	public interface CurrentImageChangeListener
 	{
@@ -31,9 +29,6 @@ public class CustomHorizontalScrollView extends HorizontalScrollView implements
 
 	/**
 	 * 条目点击时的回调
-	 * 
-	 * @author zhy
-	 * 
 	 */
 	public interface OnItemClickListener
 	{

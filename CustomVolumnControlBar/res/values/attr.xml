@@ -10,7 +10,7 @@
     <declare-styleable name="CustomVolumControlBar">
         <attr name="firstColor" />
         <attr name="secondColor" />
-        <attr name="circleWidth" />
+        <attr name="circleWidth" /> 
         <attr name="dotCount" />
         <attr name="spliteSize" />
         <attr name="bg" />

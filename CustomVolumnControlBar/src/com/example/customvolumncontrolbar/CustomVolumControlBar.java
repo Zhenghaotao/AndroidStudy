@@ -112,14 +112,14 @@ public class CustomVolumControlBar extends View {
 	 * 根据参数画出每个小块
 	 * 
 	 * @param canvas
-	 * @param center
-	 * @param radius
+	 * @param center 外部圆的半径
+	 * @param radius 内部圆的半径
 	 */
 	private void drawOval(Canvas canvas, int center, int radius) {
 		// 根据需要画的个数以及间隙计算每个块块所占的比例 * 360
-		float itemSize = (360 * 1.0f - mCount * mSpliteSize) / mCount;
+		float itemSize = (360 * 1.0f - mCount * mSpliteSize) / mCount;//每块所占的角度
 
-		// 用于定义的圆弧的形状和大小的界限
+		// 用于定义的圆弧的形状和大小的界限 *!!!
 		RectF oval = new RectF(center - radius, center - radius, center
 				+ radius, center + radius);
 
