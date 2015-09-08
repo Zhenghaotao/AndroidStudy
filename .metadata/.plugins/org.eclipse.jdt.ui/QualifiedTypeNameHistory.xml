@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.example.customimageview.R.id"/>
 <fullyQualifiedTypeName name="com.example.customimageview.R.styleable"/>
 <fullyQualifiedTypeName name="com.example.customimageview.CustomImageView"/>
@@ -38,7 +37,6 @@
 <fullyQualifiedTypeName name="android.graphics.Paint.Cap"/>
 <fullyQualifiedTypeName name="android.graphics.Paint.Style"/>
 <fullyQualifiedTypeName name="android.graphics.RectF"/>
-<fullyQualifiedTypeName name="android.view.MotionEvent"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.res.TypedArray"/>
 <fullyQualifiedTypeName name="com.example.arcmenu.R.styleable"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="android.widget.Scroller"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup.MarginLayoutParams"/>
 <fullyQualifiedTypeName name="android.view.VelocityTracker"/>
+<fullyQualifiedTypeName name="android.view.MotionEvent"/>
+<fullyQualifiedTypeName name="com.example.verticallinearlayout.VerticalLinearLayout.OnPageChangeListener"/>
 </qualifiedTypeNameHistroy>
