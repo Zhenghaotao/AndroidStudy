@@ -1,5 +1,7 @@
 package com.example.qqslidemenu;
 
+import com.nineoldandroids.view.ViewHelper;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -23,8 +25,7 @@ public class SlidingMenu extends HorizontalScrollView {
 	private int mMenuWidth;
 
 	private boolean once = false;
-	
-	
+
 	private boolean isOpen = false;
 
 	/**
@@ -53,9 +54,10 @@ public class SlidingMenu extends HorizontalScrollView {
 
 		TypedArray ta = context.getTheme().obtainStyledAttributes(attrs,
 				R.styleable.SlidingMenu, defStyle, 0);
-		mMenuRightPadding =ta.getDimensionPixelSize(R.styleable.SlidingMenu_rightPadding,
-				(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50,
-						getResources().getDisplayMetrics()));
+		mMenuRightPadding = ta.getDimensionPixelSize(
+				R.styleable.SlidingMenu_rightPadding, (int) TypedValue
+						.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50,
+								getResources().getDisplayMetrics()));
 		ta.recycle();
 
 		WindowManager wm = (WindowManager) context
@@ -108,33 +110,46 @@ public class SlidingMenu extends HorizontalScrollView {
 		}
 		return super.onTouchEvent(ev);
 	}
+
 	/**
 	 * 打开菜单
 	 */
-	public void openMenu(){
-		if(isOpen){
-			return ;
+	public void openMenu() {
+		if (isOpen) {
+			return;
 		}
 		this.smoothScrollTo(0, 0);
 		isOpen = true;
 	}
-	public void closeMenu(){
-		if(!isOpen){
-			return ;
+
+	public void closeMenu() {
+		if (!isOpen) {
+			return;
 		}
 		this.smoothScrollTo(mMenuWidth, 0);
 		isOpen = false;
 	}
-	
+
 	/**
 	 * 切换菜单
 	 */
-	public void toggle(){
-		if(isOpen){
+	public void toggle() {
+		if (isOpen) {
 			closeMenu();
 		} else {
 			openMenu();
 		}
+	}
+
+	/**
+	 * 滚动发生时
+	 */
+	@Override
+	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+		super.onScrollChanged(l, t, oldl, oldt);
+		float scale =l * 1.0f / mMenuWidth;//1 ~ 0
+		// 调用属性动画，设置TransitionX
+		ViewHelper.setTranslationX(mMenu, mMenuWidth  * scale);
 	}
 
 }
