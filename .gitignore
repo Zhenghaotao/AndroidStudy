@@ -8,10 +8,11 @@ ChangeColorTraceView
 QQListViewScrollToDel
 CustomViewStudy
 CustomImageView
-CustomHorizontalScrollView/bin
-CustomCircleWaiting/bin
+CustomHorizontalScrollView
+CustomCircleWaiting
 CustomVolumnControlBar
-VerticalLinearLayout/bin
-CustomViewGroupContainer/bin
-QQSlideMenu/bin
+VerticalLinearLayout
+CustomViewGroupContainer
+QQSlideMenu
+ArcMenu/bin
 .metadata
