@@ -222,6 +222,4 @@ public class VerticalLinearLayout extends ViewGroup {
 	public interface OnPageChangeListener{
 		void onPageChange(int currentPage);
 	}
-	
-
 }
