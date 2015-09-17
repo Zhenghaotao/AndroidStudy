@@ -18,20 +18,16 @@ public class FlowLayout extends ViewGroup {
 	public FlowLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
-
 	public FlowLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
-
 	public FlowLayout(Context context) {
 		super(context);
 	}
-
 	@Override
 	public LayoutParams generateLayoutParams(AttributeSet attrs) {
 		return new MarginLayoutParams(getContext(), attrs);
 	}
-
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -40,14 +36,11 @@ public class FlowLayout extends ViewGroup {
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
 		// 如果是wrap_content情况下，记录宽和高
 		int width = 0;
 		int height = 0;
-
 		int lineWidth = 0;
 		int lineHeight = 0;
-
 		int count = getChildCount();
 		for (int i = 0; i < count; i++) {
 			View childView = getChildAt(i);
@@ -79,12 +72,10 @@ public class FlowLayout extends ViewGroup {
 				width = Math.max(width, lineWidth);
 				height += lineHeight;
 			}
-
 		}
 		setMeasuredDimension((widthMode == MeasureSpec.EXACTLY ? widthSize
 				: width), (heightMode == MeasureSpec.EXACTLY ? heightSize
 				: height));
-
 	}
 
 	@Override
@@ -142,15 +133,11 @@ public class FlowLayout extends ViewGroup {
 				int tc = top + lp.topMargin;
 				int rc = lc + child.getMeasuredWidth();
 				int bc = tc + child.getMeasuredHeight();
-				
 				child.layout(lc, tc, rc, bc);
 				left += child.getMeasuredWidth() + lp.rightMargin + lp.leftMargin;
 			}
 			left = 0;
 			top += lineHeight;
-			
 		}
-
 	}
-
 }

@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tao="http://schemas.android.com/apk/res/com.example.bitmapshaderdemo"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <com.example.bitmapshaderdemo.RoundImageView
+            android:id="@+id/id_qiqiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/qiqiu"
+            >
+        </com.example.bitmapshaderdemo.RoundImageView>
+        <com.example.bitmapshaderdemo.RoundImageView
+           android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/aa"
+            >
+        </com.example.bitmapshaderdemo.RoundImageView>
+        <com.example.bitmapshaderdemo.RoundImageView
+           android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon"
+            >
+        </com.example.bitmapshaderdemo.RoundImageView>
+        <com.example.bitmapshaderdemo.RoundImageView
+            android:id="@+id/id_meinv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/aa"
+            tao:borderRadius="20dp"
+            tao:type="round"
+            >
+        </com.example.bitmapshaderdemo.RoundImageView>
+        <com.example.bitmapshaderdemo.RoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/qiqiu"
+            tao:borderRadius="60dp"
+            tao:type="round"
+            >
+        </com.example.bitmapshaderdemo.RoundImageView>
+    </LinearLayout>
+
+</ScrollView>
