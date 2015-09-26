@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
 	private CustomHorizontalScrollView chs_gallery;
 	private ImageView iv_content;
 	private HorizontalScrollViewAdapter mAdapter;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,11 +34,9 @@ public class MainActivity extends Activity {
 		mInflater = LayoutInflater.from(this);
 		initData();
 		initView();
-
 		initListener();
 		// 设置适配器
 		chs_gallery.initDatas(mAdapter);
-
 	}
 
 	private void initListener() {
