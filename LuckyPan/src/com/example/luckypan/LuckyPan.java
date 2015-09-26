@@ -141,7 +141,6 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
-
 	}
 
 	@Override
