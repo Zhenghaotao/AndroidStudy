@@ -1,0 +1,30 @@
+<com.example.viewdraglayout.VDHLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:background="#9900ff00"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="I can be dragged" />
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:background="#990000ff"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="I can be dragged" />
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:background="#99ff0000"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="I cannot be dragged" />
+
+</com.example.viewdraglayout.VDHLayout>
