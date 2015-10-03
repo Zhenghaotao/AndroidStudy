@@ -2,29 +2,29 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="initDirPopupWindow" key="selection"/>
+		<item value="isRecording" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="isRecording"/>
+			<item value="mReady"/>
+			<item value="mediaRecorder"/>
+			<item value="MediaRecorder"/>
+			<item value="mCurrentFilePath"/>
+			<item value="mApplication"/>
+			<item value="onResume"/>
 			<item value="initDirPopupWindow"/>
-			<item value="mCurrentDir"/>
-			<item value="getins"/>
-			<item value="mPoolTHreadHandler"/>
-			<item value="refreshBitmap"/>
-			<item value="ImgBeanHolder"/>
-			<item value="mStartAngle"/>
-			<item value="mCenter"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="317" key="DIALOG_WIDTH"/>
+		<item value="337" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="511" key="DIALOG_HEIGHT"/>
+		<item value="531" key="DIALOG_HEIGHT"/>
 		<item value="580" key="DIALOG_X_ORIGIN"/>
 		<item value="233" key="DIALOG_Y_ORIGIN"/>
 	</section>

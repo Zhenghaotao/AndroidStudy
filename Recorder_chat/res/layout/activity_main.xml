@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+	<ListView 
+	    android:id="@+id/lv"
+	    android:divider="@null"
+	    android:dividerHeight="10dp"
+	    android:background="#ebebeb"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    >
+	</ListView>
+	<FrameLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+	    <com.example.recorder_chat.view.AudioRecorderButton
+	        android:id="@+id/arb"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/btn_recoder_normal"
+	        android:layout_marginLeft="50dp"
+	        android:layout_marginRight="50dp"
+	        android:layout_marginTop="6dp"
+	        android:layout_marginBottom="7dp"
+	        android:gravity="center"
+	        android:padding="5dp"
+	        android:minHeight="0dp"
+	        android:text="@string/recoder_normal"
+	        android:textColor="#727272"
+	        >
+	        
+	    </com.example.recorder_chat.view.AudioRecorderButton>
+	    <View 
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#ccc"
+	        />
+	</FrameLayout>
+	
+</LinearLayout>
