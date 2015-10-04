@@ -18,6 +18,8 @@
         <!-- 唱片 -->
         <include layout="@layout/pan_layout"/>
         
+        <!--  选字 -->
+        <include layout="@layout/name_select"/>
         
     </LinearLayout>
 

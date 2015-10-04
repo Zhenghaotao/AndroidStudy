@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.treeview.R.layout"/>
-<fullyQualifiedTypeName name="com.example.treeview.adapter.SimpleTreeListViewAdapter.ViewHolder"/>
-<fullyQualifiedTypeName name="android.view.View"/>
-<fullyQualifiedTypeName name="android.widget.SimpleAdapter"/>
-<fullyQualifiedTypeName name="com.example.treeview.bean.FileBean"/>
-<fullyQualifiedTypeName name="com.example.treeview.adapter.SimpleTreeListViewAdapter"/>
-<fullyQualifiedTypeName name="com.example.treeview.utils.TreeListViewAdapter.OnTreeNodeClickListener"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
-<fullyQualifiedTypeName name="android.widget.EditText"/>
-<fullyQualifiedTypeName name="android.app.AlertDialog"/>
-<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
 <fullyQualifiedTypeName name="com.example.treeview.MainActivity"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="com.example.treeview.utils.Node"/>
@@ -40,12 +28,10 @@
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.view.AudioRecorderButton"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.view.AudioRecorderButton.AudioFInishRecorderListener"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.view.WindowManager"/>
 <fullyQualifiedTypeName name="android.util.DisplayMetrics"/>
 <fullyQualifiedTypeName name="org.apache.http.conn.params.ConnConnectionParamBean"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.RecorderAdapter.ViewHolder"/>
-<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.R.layout"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.bean.Recorder"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup"/>
@@ -60,4 +46,18 @@
 <fullyQualifiedTypeName name="android.media.MediaPlayer.OnErrorListener"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.R.drawable"/>
 <fullyQualifiedTypeName name="android.media.MediaPlayer"/>
+<fullyQualifiedTypeName name="android.widget.ImageButton"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.view.animation.Animation.AnimationListener"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.view.MyGridView.MyGridAdapter"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.R"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.util.Util"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.R.layout"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.model.WordButton"/>
 </qualifiedTypeNameHistroy>
