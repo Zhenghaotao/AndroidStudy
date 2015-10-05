@@ -1,6 +1,8 @@
 package com.example.guessmusic.ui;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -19,7 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.guessmusic.R;
+import com.example.guessmusic.data.Const;
 import com.example.guessmusic.model.IWordButtonClickListener;
+import com.example.guessmusic.model.Song;
 import com.example.guessmusic.model.WordButton;
 import com.example.guessmusic.util.Util;
 import com.example.guessmusic.view.MyGridView;
@@ -56,6 +60,12 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	// 标识动画是否正在进行
 	private boolean mIsRunning = false;
 
+	// 当前的歌曲
+	private Song mCurrentSong;
+
+	// 当前关的索引
+	private int mCurrentStageIndex = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,7 +93,6 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 		});
 
 		myGridView.setOnWordButtonClickListener(this);
-
 	}
 
 	private void handlePlayButton() {
@@ -181,9 +190,31 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	}
 
 	/**
+	 * 读取当前关的歌曲信息
+	 * 
+	 * @param stateIndex
+	 */
+	private void getStateSongInfo(int stateIndex) {
+		mCurrentSong = new Song();
+		mCurrentSong
+				.setmSongFileName(Const.SONG_INFO[stateIndex][Const.INDEX_FILE_NAME]);
+		mCurrentSong
+				.setmSongName(Const.SONG_INFO[stateIndex][Const.INDEX_SONG_NAME]);
+
+	}
+
+	/**
 	 * 初始化当前关的数据
 	 */
 	private void initCurrentStateData() {
+		if (mCurrentStageIndex >= Const.SONG_INFO.length) {
+			Toast.makeText(this, "恭喜你全部通关了", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		// 读取当前关的数据
+		getStateSongInfo(mCurrentStageIndex);
+		mCurrentStageIndex++;
 
 		// 初始化选择容器
 		mSelectedWord = initWordSelect();
@@ -206,14 +237,80 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	 */
 	private ArrayList<WordButton> initAllWord() {
 		ArrayList<WordButton> data = new ArrayList<WordButton>();
+
 		// 获得所有待选文字
-		// ................
+		String[] words = generateWords();
+
 		for (int i = 0; i < MyGridView.COUNTS_WORDS; i++) {
 			WordButton button = new WordButton();
-			button.setmWordString("好");
+
+			button.setmWordString(words[i]);
+
 			data.add(button);
 		}
+
 		return data;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	private String[] generateWords() {
+		Random random = new Random();
+
+		String[] words = new String[MyGridView.COUNTS_WORDS];
+
+		// 存入歌名
+		for (int i = 0; i < mCurrentSong.getmNameLength(); i++) {
+			words[i] = mCurrentSong.getNameCharacters()[i] + "";
+		}
+
+		// 获取随机文字并存入数组
+		for (int i = mCurrentSong.getmNameLength(); i < MyGridView.COUNTS_WORDS; i++) {
+			words[i] = getRandomChar() + "";
+		}
+
+		// 打乱文字顺序：首先从所有元素中随机选取一个与第一个元素进行交换，
+		// 然后在第二个之后选择一个元素与第二个交换，知道最后一个元素。
+		// 这样能够确保每个元素在每个位置的概率都是1/n。
+		for (int i = MyGridView.COUNTS_WORDS - 1; i >= 0; i--) {
+			int index = random.nextInt(i + 1);
+
+			String buf = words[index];
+			words[index] = words[i];
+			words[i] = buf;
+		}
+
+		return words;
+	}
+
+	/**
+	 * 生成随机汉字
+	 * 
+	 * @return
+	 */
+	private char getRandomChar() {
+		String str = "";
+		int hightPos;
+		int lowPos;
+
+		Random random = new Random();
+
+		hightPos = (176 + Math.abs(random.nextInt(39)));
+		lowPos = (161 + Math.abs(random.nextInt(93)));
+
+		byte[] b = new byte[2];
+		b[0] = (Integer.valueOf(hightPos)).byteValue();
+		b[1] = (Integer.valueOf(lowPos)).byteValue();
+
+		try {
+			str = new String(b, "GBK");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		return str.charAt(0);
 	}
 
 	/**
@@ -223,7 +320,7 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	 */
 	private ArrayList<WordButton> initWordSelect() {
 		ArrayList<WordButton> data = new ArrayList<WordButton>();
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < mCurrentSong.getmNameLength(); i++) {
 			View v = Util.getView(R.layout.self_ui_gridview_item,
 					MainActivity.this);
 			WordButton holder = new WordButton();
@@ -244,7 +341,6 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 
 	@Override
 	public void onWordButtonClick(WordButton wordButton) {
-		Toast.makeText(this, "Hello    " +  wordButton.getmIndex(), Toast.LENGTH_SHORT).show();
 	}
 
 }

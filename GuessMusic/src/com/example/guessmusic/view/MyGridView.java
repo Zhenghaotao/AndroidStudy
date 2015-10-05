@@ -38,7 +38,7 @@ public class MyGridView extends GridView {
 	public void updateData(ArrayList<WordButton> list) {
 		mArrayList = list;
 		// 重新设置数据源
-		mAdapter.notifyDataSetChanged();
+		setAdapter(mAdapter);
 
 	}
 
