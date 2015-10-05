@@ -16,18 +16,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.guessmusic.R;
+import com.example.guessmusic.model.IWordButtonClickListener;
 import com.example.guessmusic.model.WordButton;
 import com.example.guessmusic.util.Util;
 import com.example.guessmusic.view.MyGridView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements IWordButtonClickListener {
 
 	private static final String TAG = "MainActivity";
-	
-	
-	
 
 	// 唱片相关动画
 	private Animation mPanAnim;
@@ -42,21 +41,19 @@ public class MainActivity extends Activity {
 	private ImageButton mBtnPlayStart;
 	private ImageView mViewPan;
 	private ImageView mViewPanBar;
-	
-	
+
 	private MyGridView myGridView;
-	
-	//文字容器
+
+	// 文字容器
 	private ArrayList<WordButton> mAllWord;
-	
-	//已选择的容器
+
+	// 已选择的容器
 	private ArrayList<WordButton> mSelectedWord;
-	
-	//已选择文字UI容器
+
+	// 已选择文字UI容器
 	private LinearLayout mViewWordsContainer;
-	
-	
-	//标识动画是否正在进行
+
+	// 标识动画是否正在进行
 	private boolean mIsRunning = false;
 
 	@Override
@@ -84,16 +81,19 @@ public class MainActivity extends Activity {
 				handlePlayButton();
 			}
 		});
+
+		myGridView.setOnWordButtonClickListener(this);
+
 	}
 
 	private void handlePlayButton() {
-		if(!mIsRunning){
+		if (!mIsRunning) {
 			mIsRunning = true;
 			mViewPanBar.startAnimation(mBarInAnim);
 			mBtnPlayStart.setVisibility(View.INVISIBLE);
 			initCurrentStateData();
 		} else {
-			
+
 		}
 	}
 
@@ -115,16 +115,18 @@ public class MainActivity extends Activity {
 		mPanAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
 		mPanLin = new LinearInterpolator();
 		mPanAnim.setInterpolator(mPanLin);
-		mPanAnim.setAnimationListener(new AnimationListener() {//设置动画监听事件
+		mPanAnim.setAnimationListener(new AnimationListener() {// 设置动画监听事件
 
 			@Override
 			public void onAnimationStart(Animation animation) {
 			}
+
 			@Override
 			public void onAnimationRepeat(Animation animation) {
 			}
+
 			@Override
-			public void onAnimationEnd(Animation animation) {//动画完成之后
+			public void onAnimationEnd(Animation animation) {// 动画完成之后
 				mViewPanBar.startAnimation(mBarOutAnim);
 
 			}
@@ -138,9 +140,11 @@ public class MainActivity extends Activity {
 			@Override
 			public void onAnimationStart(Animation animation) {
 			}
+
 			@Override
 			public void onAnimationRepeat(Animation animation) {
 			}
+
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				mViewPan.startAnimation(mPanAnim);
@@ -152,11 +156,12 @@ public class MainActivity extends Activity {
 		mBarOutLin = new LinearInterpolator();
 		mBarOutAnim.setFillAfter(true);
 		mBarOutAnim.setInterpolator(mBarOutLin);
-		
+
 		mBarOutAnim.setAnimationListener(new AnimationListener() {
 			@Override
 			public void onAnimationStart(Animation animation) {
 			}
+
 			@Override
 			public void onAnimationRepeat(Animation animation) {
 			}
@@ -168,65 +173,78 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onPause() {
 		mViewPan.clearAnimation();
 		super.onPause();
 	}
+
 	/**
 	 * 初始化当前关的数据
 	 */
-	private void initCurrentStateData(){
-		
-		//初始化选择容器
+	private void initCurrentStateData() {
+
+		// 初始化选择容器
 		mSelectedWord = initWordSelect();
 		LayoutParams params = new LayoutParams(70, 70);
-		for(int i = 0; i < mSelectedWord.size(); i++){
-			mViewWordsContainer.addView(mSelectedWord.get(i).getmViewButton(),params);
+		mViewWordsContainer.removeAllViews();
+		for (int i = 0; i < mSelectedWord.size(); i++) {
+			mViewWordsContainer.addView(mSelectedWord.get(i).getmViewButton(),
+					params);
 		}
-		//获得数据
+		// 获得数据
 		mAllWord = initAllWord();
-		
-		//更新数据- MyGridView
+
+		// 更新数据- MyGridView
 		myGridView.updateData(mAllWord);
-		
+
 	}
+
 	/**
 	 * 初始化选字数据
 	 */
-	private ArrayList<WordButton> initAllWord(){
+	private ArrayList<WordButton> initAllWord() {
 		ArrayList<WordButton> data = new ArrayList<WordButton>();
-		//获得所有待选文字
+		// 获得所有待选文字
 		// ................
-		for(int i = 0; i <  MyGridView.COUNTS_WORDS; i++){
+		for (int i = 0; i < MyGridView.COUNTS_WORDS; i++) {
 			WordButton button = new WordButton();
 			button.setmWordString("好");
 			data.add(button);
 		}
 		return data;
 	}
+
 	/**
 	 * 初始化已选择文字框
+	 * 
 	 * @return
 	 */
-	private ArrayList<WordButton> initWordSelect(){
+	private ArrayList<WordButton> initWordSelect() {
 		ArrayList<WordButton> data = new ArrayList<WordButton>();
-		for(int i = 0; i < 4; i++){
-			View v = Util.getView(R.layout.self_ui_gridview_item, MainActivity.this);
+		for (int i = 0; i < 4; i++) {
+			View v = Util.getView(R.layout.self_ui_gridview_item,
+					MainActivity.this);
 			WordButton holder = new WordButton();
-			holder.setmViewButton((Button)v.findViewById(R.id.btn_item));
+			holder.setmViewButton((Button) v.findViewById(R.id.btn_item));
 			holder.getmViewButton().setTextColor(Color.WHITE);
 			holder.getmViewButton().setText("");
 			holder.setmIsVisiable(false);
-			
-			holder.getmViewButton().setBackgroundResource(R.drawable.game_wordblank);
-			
+
+			holder.getmViewButton().setBackgroundResource(
+					R.drawable.game_wordblank);
+
 			data.add(holder);
-			
+
 		}
 		return data;
-		
+
 	}
-	
+
+	@Override
+	public void onWordButtonClick(WordButton wordButton) {
+		Toast.makeText(this, "Hello    " +  wordButton.getmIndex(), Toast.LENGTH_SHORT).show();
+	}
+
 }
