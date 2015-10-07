@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.example.treeview.MainActivity"/>
-<fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
-<fullyQualifiedTypeName name="com.example.treeview.utils.Node"/>
 <fullyQualifiedTypeName name="com.example.treeview.utils.TreeHelper"/>
 <fullyQualifiedTypeName name="android.view.MotionEvent"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.R.string"/>
@@ -46,8 +43,6 @@
 <fullyQualifiedTypeName name="android.media.MediaPlayer.OnErrorListener"/>
 <fullyQualifiedTypeName name="com.example.recorder_chat.R.drawable"/>
 <fullyQualifiedTypeName name="android.media.MediaPlayer"/>
-<fullyQualifiedTypeName name="android.widget.ImageButton"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.view.animation.Animation.AnimationListener"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
@@ -59,5 +54,10 @@
 <fullyQualifiedTypeName name="com.example.guessmusic.util.Util"/>
 <fullyQualifiedTypeName name="com.example.guessmusic.R.layout"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.widget.ImageButton"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.R.integer"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="com.example.guessmusic.view.MyGridView"/>
 <fullyQualifiedTypeName name="com.example.guessmusic.model.WordButton"/>
 </qualifiedTypeNameHistroy>

@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guessmusic.R;
@@ -57,6 +58,16 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	private ImageView mViewPanBar;
 
 	private MyGridView myGridView;
+	private LinearLayout mPassView;
+
+	// 金币显示的控件
+	private TextView mViewCurrentCoins;
+
+	// 删除控件
+	private ImageButton btn_delete_word;
+
+	// 提示控件
+	private ImageButton btn_tip_answer;
 
 	// 文字容器
 	private ArrayList<WordButton> mAllWord;
@@ -76,7 +87,8 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	// 当前关的索引
 	private int mCurrentStageIndex = 0;
 
-	private LinearLayout mPassView;
+	// 当前金币数量
+	private int mCurrentCoins = Const.TOTAL_COINS;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +125,8 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 			mViewPanBar.startAnimation(mBarInAnim);
 			mBtnPlayStart.setVisibility(View.INVISIBLE);
 			initCurrentStateData();
+			
+			
 		} else {
 
 		}
@@ -129,6 +143,12 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 		mViewWordsContainer = (LinearLayout) findViewById(R.id.word_select_container);
 
 		mPassView = (LinearLayout) findViewById(R.id.pass_view);
+
+		mViewCurrentCoins = (TextView) findViewById(R.id.txt_bar_coins);
+		mViewCurrentCoins.setText(mCurrentCoins + "");
+
+		btn_delete_word = (ImageButton) findViewById(R.id.btn_delete_word);
+		btn_tip_answer = (ImageButton) findViewById(R.id.btn_tip_answer);
 	}
 
 	/**
@@ -296,7 +316,9 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 
 		// 更新数据- MyGridView
 		myGridView.updateData(mAllWord);
-
+		
+		handleDeleteWord();
+		handleTipAnswer();
 	}
 
 	/**
@@ -411,7 +433,6 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 				}
 			});
 			data.add(holder);
-
 		}
 		return data;
 	}
@@ -433,13 +454,13 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 				// 记录索引
 				mSelectedWord.get(i).setmIndex(wordButton.getmIndex());
 				Log.i(TAG, "索引:  " + wordButton.getmIndex());
-
 				// 设置待选框可见性
 				setButtonVisiable(wordButton, View.INVISIBLE);
 				break;
 			}
 		}
 	}
+	
 
 	/**
 	 * 设置待选文字框是否可见
@@ -462,7 +483,7 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 			// 答案正确，获取相应的奖励
 			handlePassEvent();
 			mCurrentStageIndex++;
-//			initCurrentStateData();
+			// initCurrentStateData();
 			break;
 		case STATUS_ANSWER_WRONG:
 			sparkTheWords();
@@ -484,4 +505,165 @@ public class MainActivity extends Activity implements IWordButtonClickListener {
 	private void handlePassEvent() {
 		mPassView.setVisibility(View.VISIBLE);
 	}
+	/**
+	 * 自动选择一个答案
+	 */
+	private void tipAnswer(){
+		boolean tipWord = false;
+		for(int i = 0;  i < mSelectedWord.size();i++){
+			if(mSelectedWord.get(i).getmWordString().equals("")){
+				WordButton wordButton = findIsAnswerWord(i);
+				onWordButtonClick(wordButton);
+				tipWord = true;
+				// 减少金币数量
+				if(!handleCoins(getTipCoins())){
+					// 金币数量不够，显示对话框
+					return;
+				}
+				break;
+			}
+		}
+		// 没有找到可以填充的答案
+		if(!tipWord){
+			//闪烁文字提示用户
+			sparkTheWords();
+		}
+	}
+	
+	
+	/**
+	 * 找到一个答案
+	 * @param index 当前需要填入答案框的索引
+	 * @return
+	 */
+	private WordButton findIsAnswerWord(int index){
+		WordButton buf = null;
+		for(int  i = 0; i < mAllWord.size(); i++){
+			buf = mAllWord.get(i);
+			if(buf.getmWordString().equals(mCurrentSong.getNameCharacters()[index] + "")){
+				return buf;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * 删除文字
+	 */
+	private void deleteOneWord() {
+		// 减少金币
+		if ( mCurrentSong.getmNameLength() == getVisibleCount()||!handleCoins(getDeleteWordCoins())) {
+			// 金币不够，显示提示对话框
+			return;
+		}
+
+		// 将这个索引对应的wordButton设置为不可见
+		setButtonVisiable(findNotAnswer(), View.INVISIBLE);
+
+	}
+	
+	private int getVisibleCount(){
+		int count = 0;
+		for(int i = 0; i < mAllWord.size();i++){
+			if(mAllWord.get(i).ismIsVisiable()){
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * 找到一个不是答案的文件,并且当前是可见的
+	 * @return
+	 */
+	private WordButton findNotAnswer() {
+		Random random = new Random();
+		WordButton buf = null;
+		while (true) {
+			int index = random.nextInt(MyGridView.COUNTS_WORDS);
+			buf = mAllWord.get(index);
+			if(buf.ismIsVisiable() && !isTheAnswerWord(buf)){
+				return buf;
+			}
+		}
+	}
+	/**
+	 * 判断某个文字是否为答案
+	 * @param word
+	 * @return
+	 */
+	private boolean isTheAnswerWord(WordButton word){
+		boolean result = false;
+		for(int i = 0; i < mCurrentSong.getmNameLength();i++){
+			if(word.getmWordString().equals(mCurrentSong.getNameCharacters()[i] + "")){
+				result = true;
+				
+			}
+		}
+		
+		return result;
+	}
+	
+
+	/**
+	 * 增加或者减少指定数量的金币
+	 * 
+	 * @param data
+	 * @return true 增加/减少成功， false失败
+	 */
+	private boolean handleCoins(int data) {
+		// 判断当前的金币数量是否可被减少
+		if (mCurrentCoins + data >= 0) {
+			mCurrentCoins += data;
+			mViewCurrentCoins.setText(mCurrentCoins + "");
+			return true;
+		}
+		// 金币不够
+		return false;
+	}
+
+	/**
+	 * 获取删除的金币数量
+	 * 
+	 * @return
+	 */
+	private int getDeleteWordCoins() {
+		return -getResources().getInteger(R.integer.pay_delete_word);
+	}
+
+	/**
+	 * 过关获取的金币数量
+	 * 
+	 * @return
+	 */
+	private int getTipCoins() {
+		return -getResources().getInteger(R.integer.pay_tip_answer);
+	}
+
+	/**
+	 * 处理删除待选文字事件
+	 */
+	private void handleDeleteWord() {
+		btn_delete_word.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				deleteOneWord();
+			}
+		});
+	}
+
+	/**
+	 * 处理提示事件
+	 */
+	private void handleTipAnswer() {
+		btn_tip_answer.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				tipAnswer();
+			}
+		});
+	}
+
 }
