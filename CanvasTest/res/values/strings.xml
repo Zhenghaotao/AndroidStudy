@@ -4,5 +4,12 @@
     <string name="app_name">CanvasTest</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="circle">圆形</string>
+    <string name="square">正方形</string>
+    <string name="rect">长方形</string>
+    <string name="round_rect">圆形矩形</string>
+    <string name="oval">椭圆形</string>
+    <string name="triangle">三角形</string>
+    <string name="pentagon">五角行</string>
 
 </resources>
