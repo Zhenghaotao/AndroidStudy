@@ -52,8 +52,6 @@ public class SurfaceViewTemplate extends SurfaceView implements Callback, Runnab
 	}
 	@Override
 	public void run() {
-		
-		
 		//不断进行绘制
 		while(isRunning){
 			try {
@@ -70,8 +68,6 @@ public class SurfaceViewTemplate extends SurfaceView implements Callback, Runnab
 			}
 		}
 	}
-
-	
 	
 
 }
